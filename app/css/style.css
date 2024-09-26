@@ -1,0 +1,6 @@
+.text-wrap {
+    font-size: 4em;
+    -webkit-text-stroke: 3px orange;
+    -webkit-text-fill-color: black;
+}
+  
