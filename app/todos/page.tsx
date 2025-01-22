@@ -31,6 +31,7 @@ export default function Todos() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-indigo-300">
       <h1>Todos</h1>
+
       <br />
       {data.results.map((result: { name: string }) => {
         return <h1 key={result.name}>{result.name}</h1>;
