@@ -13,6 +13,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 const queryClient = new QueryClient();
 
+if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_ENV !== "prod") {
+  console.log("eruda");
+  import("eruda").then((eruda) => {
+    eruda.default.init();
+  });
+}
+
 function FrozenRouter(props: { children: React.ReactNode }) {
   const context = useContext(LayoutRouterContext);
   const frozen = useRef(context).current;
