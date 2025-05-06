@@ -9,9 +9,10 @@
     "lint": "next lint",
     "clear-cdn": "gcloud compute url-maps invalidate-cdn-cache poc-nextjs --path '/*' --async",
     "upload": "gsutil -m rm -r gs://poc-nextjs/* && gsutil -m cp -r out/* gs://poc-nextjs",
-    "default-cache-header": "gsutil setmeta -h 'Cache-Control: public, no-cache' gs://poc-nextjs/**/*",
-    "cache-static-header": "gsutil setmeta -h 'Cache-Control: public, max-age=31536000, immutable' gs://poc-nextjs/_next/**/*",
-    "cache-headers": "npm run default-cache-header & npm run cache-static-header",
+    "default-cache-header": "gsutil -m setmeta -h 'Cache-Control: public, no-cache' gs://poc-nextjs/**/*",
+    "cache-static-header": "gsutil -m setmeta -h 'Cache-Control: public, max-age=31536000, immutable' gs://poc-nextjs/_next/**/*",
+    "cache-image-header": "gsutil -m setmeta -h 'Cache-Control: public, max-age=60, must-revalidate' gs://poc-nextjs/_next/static/chunks/images/**/*",
+    "cache-headers": "npm run default-cache-header && npm run cache-static-header && npm run cache-image-header",
     "deploy": "npm run build && npm run upload && npm run cache-headers && npm run clear-cdn"
   },
   "dependencies": {
