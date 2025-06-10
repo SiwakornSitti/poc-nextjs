@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { faker } from "@faker-js/faker";
 import { Item } from "@/components/Item/item";
 import { useShallow } from "zustand/react/shallow";
+import Image from "next-export-optimize-images/image";
+import Computer from "@/public/computer.jpg";
 
 export default function Page1() {
   const router = useRouter();
@@ -39,6 +41,7 @@ export default function Page1() {
         <button className="font-semibold" onClick={() => router.push("/page3")}>
           Page3
         </button>
+        <Image src={Computer} alt="Logo" width={50} height={50} />
       </div>
       <br />
       <section className="flex gap-4">
