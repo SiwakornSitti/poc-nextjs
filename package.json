@@ -12,7 +12,7 @@
     "default-cache-header": "gsutil -m setmeta -h 'Cache-Control: public, no-cache' gs://poc-nextjs/**/*",
     "cache-static-header": "gsutil -m setmeta -h 'Cache-Control: public, max-age=31536000, immutable' gs://poc-nextjs/_next/**/*",
     "cache-image-header": "gsutil -m setmeta -h 'Cache-Control: public, max-age=60, must-revalidate' gs://poc-nextjs/_next/static/chunks/images/**/*",
-    "cache-headers": "npm run default-cache-header && npm run cache-static-header && npm run cache-image-header",
+    "cache-headers": "npm run default-cache-header && npm run cache-static-header",
     "deploy": "npm run build && npm run upload && npm run cache-headers && npm run clear-cdn"
   },
   "dependencies": {
